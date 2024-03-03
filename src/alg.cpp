@@ -4,68 +4,66 @@
 
 
 bool checkPrime(uint64_t value) {
-for (int i = 2; i <= sqrt(value); i++) {
-    if (value % i == 0) {
-        return false;
+    for (int i = 2; i < value; i++) {
+        if (value % i == 0) {
+            return false;
+        }
     }
-}
-return true;
+    return true;
 }
 
 uint64_t nPrime(uint64_t n) {
-int m = 1000000;
-int m_cnt = 0;
-for (int i = 1; i <= m; i++) {
-    int k1 = 0;
-    for (int j = 2; j < i; j++) {
-        if (i % j == 0) {
-            k1++;
-            break;
+    uint64_t i = 3;
+    uint64_t m_cnt = 0;
+    while (m_cnt != n) {
+        uint64_t k1 = 0;
+        for (uint64_t j = 2; j < i; j++) {
+            if (i % j == 0) {
+                k1++;
+                break;
+            }
         }
+        if (k1 == 0) {
+            m_cnt++;
+        }
+        i++;
     }
-    if (k1 == 0) {
-        m_cnt++;
-    }
-    if (m_cnt == n) {
-        return i;
-        break;
-    }
-}
+    return i;
 }
 
 uint64_t nextPrime(uint64_t value) {
-int n = 1000000;
-for (int i = value; i <= n; i++) {
-    int k1 = 0;
-    int m_cnt = 1;
-    for (int j = 2; j < i; j++) {
-        if (i % j == 0) {
-            k1++;
-            break;
+    uint64_t m_cnt = 0;
+    uint64_t i = 2;
+    while (m_cnt != 2) {
+        uint64_t k1 = 0;
+        uint64_t m_cnt = 1;
+        for (uint64_t j = 2; j < i; j++) {
+            if (i % j == 0) {
+                k1++;
+                break;
+            }
+        }
+        i++;
+        if (k1 == 0) {
+            m_cnt++;
         }
     }
-    if (k1 == 0) {
-        m_cnt++;
-    }
-    if (m_cnt == 2) {
-        return i;
-        break;
-    }
+    return i;
 }
 
 uint64_t sumPrime(uint64_t hbound) {
-int sns = 0;
-for (int i = 1; i < hbound; i++) {
-    int k1 = 0;
-    for (int j = 2; j < i; j++) {
-        if (i % j == 0) {
-            k1++;
-            break;
+    uint64_t sns = 0;
+    for (uint64_t i = 1; i < hbound; i++) {
+        uint64_t k1 = 0;
+        for (uint64_t j = 2; j < i; j++) {
+            if (i % j == 0) {
+                k1++;
+                break;
+            }
+        }
+        if (k1 == 0) {
+            sns += i;
         }
     }
-    if (k1 == 0) {
-        sns += i;
-    }
-}
-return sns;
+    return sns;
 }
