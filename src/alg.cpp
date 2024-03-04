@@ -13,7 +13,7 @@ bool checkPrime(uint64_t value) {
 }
 
 uint64_t nPrime(uint64_t n) {
-   uint64_t i = 2;
+    uint64_t i = 2;
     uint64_t m_cnt = 0;
     uint64_t m_cons = 0;
     while (m_cnt != n) {
